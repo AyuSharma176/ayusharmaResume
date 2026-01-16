@@ -17,7 +17,7 @@ const Education = () => {
       major: 'Science (PCM)',
       institution: 'Senior Secondary School',
       location: 'India',
-      period: '2020 - 2022',
+      period: '2021 - 2022',
       grade: 'Percentage: 80%',
       description: 'Completed with focus on Mathematics, Physics, and Chemistry.'
     }
