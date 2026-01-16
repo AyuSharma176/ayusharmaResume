@@ -1,16 +1,120 @@
-# React + Vite
+# 🌟 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React and Tailwind CSS, featuring a stunning dark theme with glassmorphism effects.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[View Live Website](https://resume-web-site.vercel.app/)**
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎨 **Modern Dark Theme** with glassmorphism UI effects
+- 📱 **Fully Responsive** design for all devices
+- ⚡ **Fast Performance** built with Vite
+- 🎯 **Smooth Animations** and interactive hover effects
+- 📄 **Downloadable Resume** (PDF)
+- 🔗 **Social Media Integration** (GitHub, LinkedIn)
+- 🎭 **Dynamic Sections**:
+  - Hero/About
+  - Education
+  - Experience
+  - Skills with progress bars
+  - Projects showcase
+  - Contact information
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend Framework:** React 19.2.0
+- **Build Tool:** Vite 7.2.4
+- **Styling:** Tailwind CSS 4.1.18
+- **Icons:** React Icons 5.5.0
+- **Deployment:** Vercel
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/AyuSharma176/resume.git
+cd resume
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
+
+4. Open your browser and visit `http://localhost:5173`
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready files will be in the `dist` directory.
+
+## 📂 Project Structure
+
+```
+resume/
+├── public/
+│   └── AyushSharma_BtechCSE_GLAU.pdf
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── About.jsx
+│   │   ├── Education.jsx
+│   │   ├── Experience.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── vite.config.js
+├── package.json
+└── README.md
+```
+
+## 🎨 Key Technologies & Skills Showcased
+
+- **Programming Languages:** Python, Java, C, JavaScript, TypeScript, Dart, SQL
+- **Frameworks & Libraries:** React.js, Node.js, Express.js, Flutter, Tailwind CSS, Streamlit
+- **Databases & Cloud:** MongoDB, Firebase, MySQL, MongoDB Atlas
+- **Machine Learning:** Pandas, NumPy, Scikit-learn, XGBoost, Plotly
+- **Tools:** Git, Jira, Trello, Figma
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## 📧 Contact
+
+**Ayush Sharma**
+- Email: ayusharma1706@gmail.com
+- Phone: +91 6396168485
+- GitHub: [@AyuSharma176](https://github.com/AyuSharma176)
+- LinkedIn: [Ayush Sharma](https://www.linkedin.com/in/ayusharma17/)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+⭐ **Star this repo** if you find it useful!
+
+Made with ❤️ by Ayush Sharma
