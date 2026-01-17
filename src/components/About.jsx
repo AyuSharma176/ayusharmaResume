@@ -84,7 +84,7 @@ const About = () => {
             
             <a href="#" className="group flex items-center gap-3 px-8 py-4 bg-slate-800/40 backdrop-blur-xl border-2 border-slate-700/50 text-white rounded-xl font-bold text-lg hover:bg-slate-800/60 hover:border-cyan-500/50 hover:scale-105 transition-all duration-300">
               <FaDownload className="group-hover:animate-bounce" />
-              Download CV
+              Download CV 
             </a>
             
             <div className="flex gap-4">
