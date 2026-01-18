@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Built a full-stack digital healthcare solution within 48 hours; shortlisted as finalist among 160+ teams. Developed user-friendly interfaces using React.js and Flutter, focusing on usability and accessibility. Designed secure REST API flows using Node.js/Express with JWT auth to support role-based user journeys. Integrated ML prediction workflows to automate early insights and enhance user decision-making.',
       technologies: ['React', 'Flutter', 'Node.js', 'Express', 'MongoDB Atlas', 'Python', 'JWT', 'REST APIs'],
       github: 'https://github.com/DJXROSSS/Smart-Electronic-Health-Records-for-predictive-analytics-and-personalized-medicines-',
-      demo: '#'
+      demo: 'https://github.com/DJXROSSS/Smart-Electronic-Health-Records-for-predictive-analytics-and-personalized-medicines-'
     },
     {
       title: 'GCG – Developer Resources Platform',
@@ -25,7 +25,7 @@ const Projects = () => {
       description: 'Designed a real-time analytics dashboard supporting data-driven planning and insights. Used ARIMA and XGBoost forecasting models to provide accurate demand predictions. Delivered interactive visualizations improving usability and interpretability for non-technical users.',
       technologies: ['Python', 'Streamlit', 'Pandas', 'NumPy', 'Plotly', 'XGBoost', 'Scikit-learn'],
       github: 'https://github.com/AyuSharma176/Electricity-Demand-Forecasting-Dashboard',
-      demo: '#'
+      demo: 'https://electricity-demand-forecasting-dashboard.streamlit.app/'
     },
     {
       title: 'BeFit – Cross-Platform Fitness Application',
@@ -33,7 +33,7 @@ const Projects = () => {
       description: 'Developed a fitness app with secure authentication and personalized user dashboards. Integrated Firebase Authentication and Firestore to maintain data reliability and sync. Collaborated in an agile environment, delivering features through iterative sprints and user feedback loops.',
       technologies: ['Flutter', 'Dart', 'Firebase', 'Google Cloud'],
       github: 'https://github.com/AyuSharma176/BeFIT-A_Fitness_Application',
-      demo: '#'
+      demo: 'https://www.youtube.com/shorts/iwvjXZkm85M'
     }
   ]
 
