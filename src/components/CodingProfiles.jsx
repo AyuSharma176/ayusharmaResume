@@ -13,42 +13,136 @@ const CodingProfiles = () => {
 
   // Fetch LeetCode data
   useEffect(() => {
+    // Prevent double API calls in React Strict Mode (dev mode)
+    let isCancelled = false
+    
     const fetchLeetcodeData = async () => {
       try {
-        // Try the primary API first
-        let response = await fetch(
-          `https://leetcode-api-faisalshohag.vercel.app/${LEETCODE_USERNAME}`
-        )
+        // Cache version - increment this to force refresh for all users
+        const CACHE_VERSION = '3'
+        const cachedVersion = localStorage.getItem('leetcode_cache_version')
         
-        if (!response.ok) {
-          // Fallback to alternative API
-          response = await fetch(
-            `https://alfa-leetcode-api.onrender.com/${LEETCODE_USERNAME}/solved`
-          )
+        // Clear old cache if version changed OR if cached data has 0 problems
+        const cachedData = localStorage.getItem('leetcode_data')
+        const shouldClearCache = cachedVersion !== CACHE_VERSION || 
+          (cachedData && JSON.parse(cachedData).totalSolved === 0)
+        
+        if (shouldClearCache) {
+          console.log('🔄 Clearing cache - fetching fresh data...')
+          localStorage.removeItem('leetcode_data')
+          localStorage.removeItem('leetcode_cache_time')
+          localStorage.setItem('leetcode_cache_version', CACHE_VERSION)
         }
         
-        if (!response.ok) throw new Error('Failed to fetch LeetCode data')
-        const data = await response.json()
+        // Check localStorage cache first (cache for 1 hour)
+        const cachedDataCheck = localStorage.getItem('leetcode_data')
+        const cacheTime = localStorage.getItem('leetcode_cache_time')
         
-        // Handle different API response formats
-        if (data.totalSolved !== undefined) {
-          setLeetcodeData(data)
-        } else if (data.solvedProblem !== undefined) {
-          setLeetcodeData({
-            totalSolved: data.solvedProblem,
-            easySolved: data.easySolved || 0,
-            mediumSolved: data.mediumSolved || 0,
-            hardSolved: data.hardSolved || 0,
-            ranking: data.ranking || 0
-          })
-        } else {
-          throw new Error('Unexpected data format')
+        if (cachedDataCheck && cacheTime) {
+          const parsedCache = JSON.parse(cachedDataCheck)
+          // Only use cache if it has valid data (> 0 problems)
+          if (parsedCache.totalSolved > 0) {
+            const minutesSinceCache = (Date.now() - parseInt(cacheTime)) / (1000 * 60)
+            if (minutesSinceCache < 60) {
+              console.log('✅ Using cached LeetCode data (cached ' + minutesSinceCache.toFixed(0) + ' minutes ago)')
+              if (!isCancelled) {
+                setLeetcodeData(parsedCache)
+                setLoading(prev => ({ ...prev, leetcode: false }))
+              }
+              return
+            }
+          }
         }
+
+        console.log('🔄 Fetching fresh LeetCode data...')
+        
+        // Try to fetch from API with multiple endpoint fallbacks
+        // Based on https://github.com/alfaarghya/alfa-leetcode-api
+        const endpoints = [
+          {
+            url: `https://alfa-leetcode-api.onrender.com/${LEETCODE_USERNAME}`,
+            transform: (data) => ({
+              totalSolved: data.totalSolved || 0,
+              easySolved: data.easySolved || 0,
+              mediumSolved: data.mediumSolved || 0,
+              hardSolved: data.hardSolved || 0,
+              ranking: data.ranking || 0
+            })
+          },
+          {
+            url: `https://alfa-leetcode-api.onrender.com/${LEETCODE_USERNAME}/solved`,
+            transform: (data) => ({
+              totalSolved: data.solvedProblem || 0,
+              easySolved: data.easySolved || 0,
+              mediumSolved: data.mediumSolved || 0,
+              hardSolved: data.hardSolved || 0,
+              ranking: data.ranking || 0
+            })
+          }
+        ]
+
+        let fetchSuccess = false
+        let lastError = null
+        
+        for (const endpoint of endpoints) {
+          try {
+            const controller = new AbortController()
+            const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+            
+            const response = await fetch(endpoint.url, { signal: controller.signal })
+            clearTimeout(timeoutId)
+            
+            if (response.status === 429) {
+              console.log('⚠️ Rate limited on', endpoint.url)
+              lastError = new Error('Rate limited')
+              continue
+            }
+            
+            if (response.ok) {
+              const data = await response.json()
+              console.log('📦 Raw API response:', data) // Debug log
+              
+              const transformedData = endpoint.transform(data)
+              console.log('🔄 Transformed data:', transformedData) // Debug log
+              
+              // Validate the data - totalSolved should be a positive number
+              if (transformedData.totalSolved > 0 && !isCancelled) {
+                setLeetcodeData(transformedData)
+                
+                // Cache the successful result for 1 hour
+                localStorage.setItem('leetcode_data', JSON.stringify(transformedData))
+                localStorage.setItem('leetcode_cache_time', Date.now().toString())
+                console.log('✅ Fetched from alfa-leetcode-api:', transformedData.totalSolved, 'problems solved')
+                fetchSuccess = true
+                break
+              } else if (transformedData.totalSolved === 0) {
+                console.log('⚠️ API returned 0 problems - trying next endpoint')
+                lastError = new Error('Invalid data: 0 problems')
+                continue
+              }
+            } else {
+              lastError = new Error(`HTTP ${response.status}`)
+            }
+          } catch (err) {
+            console.log('❌ Failed endpoint:', endpoint.url, err.message)
+            lastError = err
+            continue
+          }
+        }
+        
+        if (!fetchSuccess) {
+          throw lastError || new Error('All API endpoints failed')
+        }
+        
       } catch (err) {
-        console.error('LeetCode fetch error:', err)
-        setError(prev => ({ ...prev, leetcode: true }))
+        console.error('❌ LeetCode API error:', err.message)
+        if (!isCancelled) {
+          setError(prev => ({ ...prev, leetcode: true }))
+        }
       } finally {
-        setLoading(prev => ({ ...prev, leetcode: false }))
+        if (!isCancelled) {
+          setLoading(prev => ({ ...prev, leetcode: false }))
+        }
       }
     }
 
@@ -56,6 +150,11 @@ const CodingProfiles = () => {
       fetchLeetcodeData()
     } else {
       setLoading(prev => ({ ...prev, leetcode: false }))
+    }
+
+    // Cleanup function to prevent state updates after unmount
+    return () => {
+      isCancelled = true
     }
   }, [])
 
