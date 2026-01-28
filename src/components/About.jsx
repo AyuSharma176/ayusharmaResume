@@ -39,7 +39,6 @@ const About = () => {
 
     return () => clearTimeout(timer);
   }, [roleText, isDeleting, roleIndex]);
-
   return (
     <section
       id="about"

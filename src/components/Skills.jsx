@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaReact, FaNodeJs, FaPython, FaJava, FaDatabase } from 'react-icons/fa'
-import { SiJavascript, SiTypescript, SiMongodb, SiExpress, SiC, SiDart, SiFlutter, SiTailwindcss, SiStreamlit, SiFirebase, SiMysql, SiPandas, SiNumpy, SiScikitlearn, SiPlotly, SiJira, SiTrello, SiFigma } from 'react-icons/si'
+import { SiJavascript, SiTypescript, SiMongodb, SiExpress, SiC, SiDart, SiFlutter, SiTailwindcss, SiStreamlit, SiFirebase, SiMysql, SiPandas, SiNumpy, SiScikitlearn, SiPlotly, SiVercel, SiRender, SiFigma } from 'react-icons/si'
 import { TbBrandReactNative } from 'react-icons/tb'
 
 const Skills = () => {
@@ -50,8 +50,8 @@ const Skills = () => {
     {
       category: 'Product & Collaboration',
       skills: [
-        { name: 'Jira', icon: <SiJira />, level: 80 },
-        { name: 'Trello', icon: <SiTrello />, level: 85 },
+        { name: 'Vercel', icon: <SiVercel />, level: 80 },
+        { name: 'Render', icon: <SiRender />, level: 85 },
         { name: 'Figma', icon: <SiFigma />, level: 70 }
       ]
     }
