@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaMapMarkerAlt,FaTwitter } from 'react-icons/fa'
 
 const Contact = () => {
   return (
@@ -49,6 +49,11 @@ const Contact = () => {
                className="w-16 h-16 flex items-center justify-center bg-slate-700/50 border-2 border-blue-500 text-blue-400 rounded-full text-2xl hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent hover:scale-110 hover:rotate-[360deg] transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/50">
               <FaLinkedin />
             </a>
+            <a href="https://twitter.com/ayusharma17" target="_blank" rel="noopener noreferrer" 
+               className="w-16 h-16 flex items-center justify-center bg-slate-700/50 border-2 border-purple-500 text-purple-400 rounded-full text-2xl hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-600 hover:text-white hover:border-transparent hover:scale-110 hover:rotate-[360deg] transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-purple-500/50">
+              <FaTwitter />
+            </a>
+           
           </div>
         </div>
         
