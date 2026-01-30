@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBriefcase, FaCalendar } from 'react-icons/fa'
+import { FaBriefcase, FaCalendar,FaCode} from 'react-icons/fa'
 
 const Experience = () => {
   const experiences = [
@@ -13,7 +13,8 @@ const Experience = () => {
         'Collaborated with cross-functional teams to deliver high-quality features',
         'Participated in code reviews and contributed to technical documentation',
         'Improved application performance by 30% through optimization techniques'
-      ]
+      ],
+      technologies: ['Flutter', 'Firebase', 'Android']
     },
   ]
 
@@ -35,9 +36,14 @@ const Experience = () => {
                 <h4 className="text-xl font-semibold text-cyan-400 mb-2">{exp.company}</h4>
                 <p className="text-slate-400 mb-3">{exp.location}</p>
                 <div className="flex items-center gap-2 text-slate-400 mb-4">
+                  <FaCode className="text-sm" />
+                  <span>{exp.technologies.join(', ')}</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400 mb-4">
                   <FaCalendar className="text-sm" />
                   <span>{exp.period}</span>
                 </div>
+                
                 <ul className="space-y-2">
                   {exp.description.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-slate-700">
@@ -46,6 +52,7 @@ const Experience = () => {
                     </li>
                   ))}
                 </ul>
+                
               </div>
             </div>
           ))}

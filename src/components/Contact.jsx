@@ -16,7 +16,7 @@ const Contact = () => {
               <FaEnvelope />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Email</h3>
-            <a href="mailto:ayush@example.com" className="text-slate-400 hover:text-cyan-400 transition-colors">
+            <a href="mailto:ayusharma1706@gmail.com" className="text-slate-400 hover:text-cyan-400 transition-colors">
               ayusharma1706@gmail.com
             </a>
           </div>

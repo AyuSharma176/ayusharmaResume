@@ -7,6 +7,7 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaDownload,
+  FaTwitter,
 } from "react-icons/fa";
 
 const About = () => {
@@ -202,6 +203,14 @@ const About = () => {
                 className="w-14 h-14 flex items-center justify-center bg-slate-800/40 backdrop-blur-xl rounded-xl text-white text-2xl border-2 border-slate-700/50 hover:border-blue-400 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50"
               >
                 <FaLinkedin />
+              </a>
+              <a
+                href="https://x.com/AyuSharma176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 flex items-center justify-center bg-slate-800/40 backdrop-blur-xl rounded-xl text-white text-2xl border-2 border-slate-700/50 hover:border-purple-400 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:scale-110 hover:rotate-12 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-purple-500/50"
+              >
+                <FaTwitter />
               </a>
             </div>
           </div>
