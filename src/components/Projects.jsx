@@ -4,6 +4,14 @@ import { FaGithub, FaExternalLinkAlt, FaCalendar } from 'react-icons/fa'
 const Projects = () => {
   const projects = [
     {
+      title: 'PrepAi – AI-Powered Interview Preparation Platform',
+      period: 'Jan 2026',
+      description: 'Built a cutting-edge AI-powered interview preparation platform using Google Gemini AI for personalized question generation and evaluation. Implemented voice-enabled interface with speech recognition and text-to-speech capabilities. Designed secure session management with email verification and company-specific preparation spaces. Integrated intelligent feedback system providing detailed performance analytics and improvement recommendations.',
+      technologies: ['Node.js', 'Express.js', 'MongoDB Atlas', 'Tailwind CSS', 'Web Speech API', 'Nodemailer', 'EJS'],
+      github: 'https://github.com/AyuSharma176/PrepAI-AI_Based_Interview_Prepration_Plateform',
+      demo: 'https://prepai-ai-based-interview-prepration-hacq.onrender.com'
+    },
+    {
       title: 'MediConnect – Secure Digital Platform',
       period: 'Oct 2025',
       description: 'Built a full-stack digital healthcare solution within 48 hours; shortlisted as finalist among 160+ teams. Developed user-friendly interfaces using React.js and Flutter, focusing on usability and accessibility. Designed secure REST API flows using Node.js/Express with JWT auth to support role-based user journeys. Integrated ML prediction workflows to automate early insights and enhance user decision-making.',
