@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Built a cutting-edge AI-powered interview preparation platform using Google Gemini AI for personalized question generation and evaluation. Implemented voice-enabled interface with speech recognition and text-to-speech capabilities. Designed secure session management with email verification and company-specific preparation spaces. Integrated intelligent feedback system providing detailed performance analytics and improvement recommendations.',
       technologies: ['Node.js', 'Express.js', 'MongoDB Atlas', 'Tailwind CSS', 'Web Speech API', 'Nodemailer', 'EJS'],
       github: 'https://github.com/AyuSharma176/PrepAI-AI_Based_Interview_Prepration_Plateform',
-      demo: 'https://prepai-ai-based-interview-prepration-hacq.onrender.com'
+      demo: 'https://prepai.ayusharma.in'
     },
     {
       title: 'MediConnect – Secure Digital Platform',
@@ -25,7 +25,7 @@ const Projects = () => {
       description: 'Designed and developed a high-performance web platform with emphasis on UX clarity and fast page loads. Optimized rendering with React + Tailwind, improving Time-to-Interactive and responsiveness. Implemented CI/CD pipelines for frictionless deployments and iterative feature delivery.',
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'REST APIs', 'Git', 'GitHub', 'Vercel'],
       github: 'https://github.com/AyuSharma176/GCG',
-      demo: 'https://gla-coding-group.vercel.app/'
+      demo: 'https://gcg.ayusharma.in'
     },
     {
       title: 'Electricity Demand Forecasting Dashboard',
