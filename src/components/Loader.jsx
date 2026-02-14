@@ -53,14 +53,8 @@ export default function Loader() {
       {/* Floating shapes matching website theme */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-float"></div>
-        <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        ></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-float [animation-delay:1s]"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-float [animation-delay:2s]"></div>
       </div>
 
       {/* Rotating ring with cyan/blue gradient */}
@@ -120,11 +114,7 @@ export default function Loader() {
                 variants={letterVariants}
                 initial="initial"
                 animate="animate"
-                className="text-8xl font-black tracking-wider relative"
-                style={{
-                  color: "#ffffff",
-                  textShadow: "0 0 40px rgba(34, 211, 238, 0.4), 0 0 80px rgba(59, 130, 246, 0.2)",
-                }}
+                className="text-8xl font-black tracking-wider relative text-white [text-shadow:0_0_40px_rgba(34,211,238,0.4),0_0_80px_rgba(59,130,246,0.2)]"
               >
                 {letter}
               </motion.span>
@@ -134,13 +124,7 @@ export default function Loader() {
               variants={letterVariants}
               initial="initial"
               animate="animate"
-              className="text-6xl font-black mb-2"
-              style={{
-                background: "linear-gradient(135deg, #22d3ee, #3b82f6, #a855f7)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                textShadow: "0 0 40px rgba(168, 85, 247, 0.4)",
-              }}
+              className="text-6xl font-black mb-2 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent [text-shadow:0_0_40px_rgba(168,85,247,0.4)]"
             >
               .
             </motion.span>
@@ -151,12 +135,7 @@ export default function Loader() {
             variants={shimmerVariants}
             initial="initial"
             animate="animate"
-            className="absolute top-0 left-0 w-full h-full"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), rgba(59, 130, 246, 0.2), transparent)",
-              pointerEvents: "none",
-            }}
+            className="absolute top-0 left-0 w-full h-full pointer-events-none [background:linear-gradient(90deg,transparent,rgba(34,211,238,0.3),rgba(59,130,246,0.2),transparent)]"
           />
         </div>
 
@@ -169,11 +148,7 @@ export default function Loader() {
             delay: 1,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="h-1 w-40 mx-auto mt-8 rounded-full"
-          style={{
-            background: "linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7)",
-            transformOrigin: "center",
-          }}
+          className="h-1 w-40 mx-auto mt-8 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 origin-center"
         />
       </div>
 
@@ -193,11 +168,13 @@ export default function Loader() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="w-2 h-2 rounded-full"
-            style={{ 
-              background: i === 0 ? "#22d3ee" : i === 1 ? "#3b82f6" : "#a855f7",
-              boxShadow: `0 0 10px ${i === 0 ? "#22d3ee" : i === 1 ? "#3b82f6" : "#a855f7"}`
-            }}
+            className={`w-2 h-2 rounded-full ${
+              i === 0
+                ? "bg-cyan-400 [box-shadow:0_0_10px_#22d3ee]"
+                : i === 1
+                ? "bg-blue-500 [box-shadow:0_0_10px_#3b82f6]"
+                : "bg-purple-500 [box-shadow:0_0_10px_#a855f7]"
+            }`}
           />
         ))}
       </motion.div>
