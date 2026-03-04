@@ -25,7 +25,7 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <div className="min-h-screen bg-slate-950">
+        <div className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
           <Header />
           <main>
             <About />

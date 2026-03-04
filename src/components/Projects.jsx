@@ -46,35 +46,35 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 bg-slate-900">
+    <section id="projects" className="py-20" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 relative inline-block">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block" style={{ color: 'var(--color-text)' }}>
           Projects
-          <span className="absolute bottom-0 left-0 w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></span>
+          <span className="absolute bottom-0 left-0 w-20 h-1.5 rounded-full" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}></span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="group bg-slate-800/40 backdrop-blur-xl p-8 rounded-2xl flex flex-col justify-between border border-slate-700/50 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02]">
+            <div key={index} className="group backdrop-blur-xl p-8 rounded-2xl flex flex-col justify-between transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02]" style={{ backgroundColor: 'var(--color-background)', boxShadow: '0 4px 28px 0 var(--color-primary)' }}>
               <div>
-                <div className="flex items-center gap-2 text-cyan-400 text-sm font-semibold mb-3">
+                <div className="flex items-center gap-2 text-sm font-semibold mb-3" style={{ color: 'var(--color-primary)' }}>
                   <FaCalendar />
                   <span>{project.period}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                <p className="text-slate-400 leading-relaxed mb-5">{project.description}</p>
+                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>{project.title}</h3>
+                <p className="leading-relaxed mb-5" style={{ color: 'var(--color-textSecondary)' }}>{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-slate-700/50 text-cyan-400 rounded-full text-xs font-bold border border-slate-600 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 hover:text-white hover:border-transparent transition-all duration-300">
+                    <span key={i} className="px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300" style={{ backgroundColor: 'var(--color-surface)', color: 'var(--color-primary)', boxShadow: '0 0 8px 0 var(--color-primary)' }}>
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="flex gap-4 pt-5 border-t border-slate-700/50">
-                <a href={project.github} className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 hover:-translate-y-1 transition-all duration-300">
+              <div className="flex gap-4 pt-5 border-t" style={{ borderColor: 'var(--color-surface)' }}>
+                <a href={project.github} className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', color: 'var(--color-text)' }}>
                   <FaGithub /> Code
                 </a>
-                <a href={project.demo} className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl hover:shadow-cyan-500/50 hover:-translate-y-1 transition-all duration-300">
+                <a href={project.demo} className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', color: 'var(--color-text)' }}>
                   <FaExternalLinkAlt /> Demo
                 </a>
               </div>

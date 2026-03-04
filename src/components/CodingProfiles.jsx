@@ -254,11 +254,11 @@ const CodingProfiles = () => {
   };
 
   return (
-    <section id="competitiveprogramming" className="py-20 bg-slate-900">
+    <section id="competitiveprogramming" className="py-20" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 relative inline-block">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block" style={{ color: 'var(--color-text)' }}>
           Competitive Programming
-          <span className="absolute bottom-0 left-0 w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></span>
+          <span className="absolute bottom-0 left-0 w-20 h-1.5 rounded-full" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}></span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -354,12 +354,12 @@ const CodingProfiles = () => {
           </div> */}
 
           {/* LeetCode Card */}
-          <div className="bg-slate-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 border border-slate-700/50 hover:border-yellow-500/50">
+          <div className="backdrop-blur-xl p-8 rounded-2xl transition-all duration-500" style={{ backgroundColor: 'var(--color-background)', boxShadow: '0 4px 28px 0 var(--color-primary)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-600 text-white rounded-xl text-2xl shadow-md">
+              <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl text-2xl shadow-md" style={{ color: 'var(--color-text)' }}>
                 <SiLeetcode />
               </div>
-              <h3 className="text-2xl font-bold text-white">LeetCode</h3>
+              <h3 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>LeetCode</h3>
             </div>
 
             <div className="w-full overflow-hidden rounded-xl">
@@ -381,28 +381,29 @@ const CodingProfiles = () => {
           </div>
 
           {/* Codeforces Card */}
-          <div className="bg-slate-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 border border-slate-700/50 hover:border-blue-500/50">
+          <div className="backdrop-blur-xl p-8 rounded-2xl transition-all duration-500" style={{ backgroundColor: 'var(--color-background)', boxShadow: '0 4px 28px 0 var(--color-secondary)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-700 text-white rounded-xl text-2xl shadow-md">
+              <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl text-2xl shadow-md" style={{ color: 'var(--color-text)' }}>
                 <SiCodeforces />
               </div>
-              <h3 className="text-2xl font-bold text-white">Codeforces</h3>
+              <h3 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>Codeforces</h3>
             </div>
 
             {loading.codeforces ? (
               <div className="space-y-4">
-                <div className="h-4 bg-slate-700 rounded animate-pulse"></div>
-                <div className="h-4 bg-slate-700 rounded animate-pulse w-3/4"></div>
-                <div className="h-4 bg-slate-700 rounded animate-pulse w-1/2"></div>
+                <div className="h-4 rounded animate-pulse" style={{ backgroundColor: 'var(--color-surface)' }}></div>
+                <div className="h-4 rounded animate-pulse w-3/4" style={{ backgroundColor: 'var(--color-surface)' }}></div>
+                <div className="h-4 rounded animate-pulse w-1/2" style={{ backgroundColor: 'var(--color-surface)' }}></div>
               </div>
             ) : error.codeforces || !codeforcesData ? (
-              <div className="text-slate-400">
+              <div style={{ color: 'var(--color-textSecondary)' }}>
                 <p className="mb-4">Unable to fetch Codeforces data</p>
                 <a
                   href={`https://codeforces.com/profile/${CODEFORCES_USERNAME}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="underline"
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   View Profile →
                 </a>
@@ -410,8 +411,8 @@ const CodingProfiles = () => {
             ) : (
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-700/30 p-4 rounded-lg">
-                    <p className="text-slate-400 text-sm mb-1">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--color-surface)' }}>
+                    <p className="text-sm mb-1" style={{ color: 'var(--color-textSecondary)' }}>
                       Current Rating
                     </p>
                     <p
@@ -421,8 +422,8 @@ const CodingProfiles = () => {
                       {codeforcesData.rating || 0}
                     </p>
                   </div>
-                  <div className="bg-slate-700/30 p-4 rounded-lg">
-                    <p className="text-slate-400 text-sm mb-1">Max Rating</p>
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--color-surface)' }}>
+                    <p className="text-sm mb-1" style={{ color: 'var(--color-textSecondary)' }}>Max Rating</p>
                     <p
                       className="text-3xl font-bold"
                       style={{
@@ -434,18 +435,18 @@ const CodingProfiles = () => {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-700/30 p-4 rounded-lg">
-                    <p className="text-slate-400 text-sm mb-1">Contests</p>
-                    <p className="text-2xl font-bold text-cyan-400">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--color-surface)' }}>
+                    <p className="text-sm mb-1" style={{ color: 'var(--color-textSecondary)' }}>Contests</p>
+                    <p className="text-2xl font-bold" style={{ color: 'var(--color-primary)' }}>
                       {codeforcesData.rating
                         ? Math.floor(codeforcesData.rating / 100)
                         : 0}
                       +
                     </p>
                   </div>
-                  <div className="bg-slate-700/30 p-4 rounded-lg">
-                    <p className="text-slate-400 text-sm mb-1">Rank</p>
-                    <p className="text-lg font-bold text-purple-400">
+                  <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--color-surface)' }}>
+                    <p className="text-sm mb-1" style={{ color: 'var(--color-textSecondary)' }}>Rank</p>
+                    <p className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
                       {codeforcesData.rank || "Unrated"}
                     </p>
                   </div>
@@ -454,7 +455,8 @@ const CodingProfiles = () => {
                   href={`https://codeforces.com/profile/${CODEFORCES_USERNAME}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-300"
+                  className="inline-block mt-4 px-4 py-2 font-semibold rounded-lg transition-colors duration-300"
+                  style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', color: 'var(--color-text)' }}
                 >
                   View Profile →
                 </a>

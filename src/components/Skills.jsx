@@ -58,29 +58,29 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-slate-950">
+    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 relative inline-block">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block" style={{ color: 'var(--color-text)' }}>
           Skills
-          <span className="absolute bottom-0 left-0 w-20 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></span>
+          <span className="absolute bottom-0 left-0 w-20 h-1.5 rounded-full" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}></span>
         </h2>
         <div className="space-y-10">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-slate-800/40 backdrop-blur-xl p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 border border-slate-700/50 hover:border-cyan-500/50">
-              <h3 className="text-2xl font-bold text-white mb-6 pb-3 border-b-2 border-cyan-500">{category.category}</h3>
+            <div key={index} className="backdrop-blur-xl p-8 rounded-2xl transition-all duration-500" style={{ backgroundColor: 'var(--color-surface)', boxShadow: '0 4px 28px 0 var(--color-primary)' }}>
+              <h3 className="text-2xl font-bold mb-6 pb-3 border-b-2" style={{ color: 'var(--color-text)', borderColor: 'var(--color-primary)' }}>{category.category}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.skills.map((skill, i) => (
                   <div key={i} className="group space-y-3 hover:scale-105 transition-transform duration-300">
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-xl text-xl shadow-md group-hover:shadow-xl group-hover:rotate-12 transition-all duration-300">
+                      <div className="w-11 h-11 flex items-center justify-center rounded-xl text-xl shadow-md group-hover:shadow-xl group-hover:rotate-12 transition-all duration-300" style={{ background: 'linear-gradient(to bottom right, var(--color-primary), var(--color-secondary))', color: 'var(--color-text)' }}>
                         {skill.icon}
                       </div>
-                      <span className="text-lg font-semibold text-white">{skill.name}</span>
+                      <span className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>{skill.name}</span>
                     </div>
-                    <div className="h-2.5 bg-slate-700/50 rounded-full overflow-hidden">
+                    <div className="h-2.5 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-surface)' }}>
                       <div 
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000 ease-out shadow-sm"
-                        style={{ width: `${skill.level}%` }}
+                        className="h-full rounded-full transition-all duration-1000 ease-out shadow-sm"
+                        style={{ width: `${skill.level}%`, background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}
                       ></div>
                     </div>
                   </div>

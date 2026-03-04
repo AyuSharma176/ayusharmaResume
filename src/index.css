@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    /* Default theme colors (Ocean Depths) */
+    --color-primary: #06B6D4;
+    --color-secondary: #3B82F6;
+    --color-accent: #A855F7;
+    --color-background: #020617;
+    --color-surface: #0F172A;
+    --color-text: #F1F5F9;
+    --color-textSecondary: #CBD5E1;
+  }
+
   html,
   body {
-    @apply bg-slate-950;
+    background-color: var(--color-background);
+    color: var(--color-text);
   }
 }
 
